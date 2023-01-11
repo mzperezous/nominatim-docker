@@ -1,6 +1,5 @@
 FROM ubuntu:jammy AS build
 
-ENV NOMINATIM_DATABASE_DSN "pgsql:dbname=${PG_DATABASE};host=${RDS_URL};user=${PG_USER};password=${PG_PASSWORD}"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
 
@@ -23,6 +22,7 @@ RUN true \
         build-essential \
         g++ \
         cmake \
+        dns-utils \
         libpq-dev \
         zlib1g-dev \
         libbz2-dev \

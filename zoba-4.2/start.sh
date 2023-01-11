@@ -11,6 +11,9 @@ stopServices() {
 }
 trap stopServices SIGTERM TERM INT
 
+DB_IP=$(nslookup ${RDS_URL} | tail -n +3 | sed -n 's/Address:\s*//p')
+export NOMINATIM_DATABASE_DSN="pgsql:dbname=nominatim;host=${DB_IP};user=${PGUSER};password=${PGPASSWORD}"
+
 /app/config.sh
 
 if id nominatim >/dev/null 2>&1; then
