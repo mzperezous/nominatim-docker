@@ -22,7 +22,7 @@ RUN true \
         build-essential \
         g++ \
         cmake \
-        dns-utils \
+        dnsutils \
         libpq-dev \
         zlib1g-dev \
         libbz2-dev \
